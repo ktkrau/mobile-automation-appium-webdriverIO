@@ -38,7 +38,7 @@ describe('Android Elements Tests', () => {
         await $('android=new UiSelector().textContains("Alert")').click();
     });
 
-    it.only('Find multiple elements', async () =>{
+    it('Find multiple elements', async () =>{
         
         const expectedList = [
             'API Demos', "Access'ibility",
@@ -63,4 +63,18 @@ describe('Android Elements Tests', () => {
         await expect(actualList).toEqual(expectedList);
 
     });
+
+    it.only('Working with text field', async () => {
+        //access the screen
+        await $('~Views').click();
+        await $('//*[@text="Auto Complete"]').click();
+        await $('//*[@content-desc="1. Screen Top"]').click();
+
+        //enter the country name
+        const textField = await $('//*[@resource-id="io.appium.android.apis:id/edit"]');
+        await textField.addValue('Canada');
+        
+        //verify the country name
+        await expect(textField).toHaveText('Canada');
+    })
 });
