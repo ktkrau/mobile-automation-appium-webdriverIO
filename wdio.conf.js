@@ -27,7 +27,10 @@ exports.config = {
     specs: [
         //'./test/specs/**/*.js'
         //'./test/specs/**/android-native*.js'
-        './test/specs/android/*.js'
+        //'./test/specs/android/*.js'
+        //'./test/specs/android/delete*.js'
+        './test/specs/android/add-note-screen*.js'
+
 
     ],
     // Patterns to exclude.
@@ -62,7 +65,8 @@ exports.config = {
         "appium:deviceName": "Pixel 3",
         "appium:automationName": "UIAutomator2",
         //"appium:app": path.join(process.cwd(), "./app/android/ApiDemos-debug.apk")
-        "appium:app": path.join(process.cwd(), "./app/android/ColorNote+Notepad.apk")
+        "appium:app": path.join(process.cwd(), "./app/android/ColorNote+Notepad.apk"),
+        "appium:autoGrantPermissions": true
     }],
     //
     // ===================
